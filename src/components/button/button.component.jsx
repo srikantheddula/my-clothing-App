@@ -4,9 +4,9 @@ import './button.styles.scss'
 const button_types={google:'google-sign-in',
                     inverted:'inverted'}
 
-const Button=({children,buttonType})=>{
+const Button=({children,buttonType,onClick})=>{
 return (
-<button className={`button-container ${button_types[buttonType]}`}>
+<button onClick={onClick} className={`button-container ${button_types[buttonType]}`}>
     {children}
 </button>
 )

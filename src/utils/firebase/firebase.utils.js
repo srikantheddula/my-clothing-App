@@ -4,23 +4,17 @@ import {getAuth,
   signInWithRedirect,
   createUserWithEmailAndPassword,
   signInWithPopup,
-  GoogleAuthProvider} from 'firebase/auth';
+  GoogleAuthProvider,signInWithEmailAndPassword} from 'firebase/auth';
 
 import {getFirestore,doc,getDoc,setDoc} from 'firebase/firestore'
 
 const firebaseConfig = {
-
-    apiKey: "AIzaSyCBUsV-VEe00Twq8XOnRADRpAs8zC7GKns",
-  
-    authDomain: "crwn-clothing-36f52.firebaseapp.com",
-  
-    projectId: "crwn-clothing-36f52",
-  
-    storageBucket: "crwn-clothing-36f52.appspot.com",
-  
-    messagingSenderId: "906208552503",
-  
-    appId: "1:906208552503:web:69c7a0152604cf6dc841b2"
+  apiKey: "AIzaSyCBUsV-VEe00Twq8XOnRADRpAs8zC7GKns",
+  authDomain: "crwn-clothing-36f52.firebaseapp.com",
+  projectId: "crwn-clothing-36f52",
+  storageBucket: "crwn-clothing-36f52.appspot.com",
+  messagingSenderId: "906208552503",
+  appId: "1:906208552503:web:69c7a0152604cf6dc841b2"
   
   };
 
@@ -37,7 +31,8 @@ const firebaseConfig = {
   export const signInWithGooglePopup=()=>{
 return signInWithPopup(auth,provider)
   }
-  export const signInWithGoogleRedirect=()=>signInWithRedirect(auth,provider)
+  
+  // export const signInWithGoogleRedirect=()=>signInWithRedirect(auth,provider)
   
 
 
@@ -65,5 +60,15 @@ console.log('error creating' ,err.message)
   }
 
   export const createAuthUserWithUsernamePassword=async(email,password)=>{
+    if(!email||!password){
+      return ;
+    }
 return createUserWithEmailAndPassword(auth,email,password)
   }
+
+  export const signInUserWithEmailPassword=async(email,password)=>{
+    if(!email||!password){
+      return ;
+    }
+    return signInWithEmailAndPassword(auth,email,password)
+      }
