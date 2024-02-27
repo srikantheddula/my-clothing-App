@@ -4,7 +4,7 @@ import {getAuth,
   signInWithRedirect,
   createUserWithEmailAndPassword,
   signInWithPopup,
-  GoogleAuthProvider,signInWithEmailAndPassword,signOut} from 'firebase/auth';
+  GoogleAuthProvider,signInWithEmailAndPassword,signOut,onAuthStateChanged} from 'firebase/auth';
 
 import {getFirestore,doc,getDoc,setDoc} from 'firebase/firestore'
 
@@ -73,6 +73,10 @@ return createUserWithEmailAndPassword(auth,email,password)
     return signInWithEmailAndPassword(auth,email,password)
       }
 
-      export const signOutUser=()=>{
-        return signOut(auth)
+      export const signOutUser=async ()=>{
+        return await signOut(auth)
+      }
+
+      export const onAuthStateChangedListener=(callback)=>{
+        return onAuthStateChanged(auth,callback)
       }
