@@ -4,7 +4,7 @@ import {getAuth,
   signInWithRedirect,
   createUserWithEmailAndPassword,
   signInWithPopup,
-  GoogleAuthProvider,signInWithEmailAndPassword} from 'firebase/auth';
+  GoogleAuthProvider,signInWithEmailAndPassword,signOut} from 'firebase/auth';
 
 import {getFirestore,doc,getDoc,setDoc} from 'firebase/firestore'
 
@@ -71,4 +71,8 @@ return createUserWithEmailAndPassword(auth,email,password)
       return ;
     }
     return signInWithEmailAndPassword(auth,email,password)
+      }
+
+      export const signOutUser=()=>{
+        return signOut(auth)
       }
