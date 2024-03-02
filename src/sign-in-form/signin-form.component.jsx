@@ -5,7 +5,7 @@ import { signInWithGooglePopup } from "../utils/firebase/firebase.utils"
 import { createUserDocumentFromAuth } from "../utils/firebase/firebase.utils"
 import { signInUserWithEmailPassword} from "../utils/firebase/firebase.utils"
 import './sign-in-form.styles.scss'
-import Button from "../components/button/button.component"
+import Button,{button_types_Classes} from "../components/button/button.component"
 // import { useContext } from "react"
 // import {UserContext } from "../useContext/userContext.component"
 
@@ -83,8 +83,8 @@ const handleSubmit=async (event)=>{
                        <FormInput  label='password ' type="password" required onChange={handleChange} name='password' value={password}/> 
                       
                        <div className="button-container">       
-                       <Button type='submit' buttonType='inverted' >signIn</Button>
-                       <Button onClick={signInWithGoogle} buttonType='google' type='button'>signin with google</Button>
+                       <Button type='submit' buttonType={button_types_Classes.inverted} >signIn</Button>
+                       <Button onClick={signInWithGoogle} buttonType={button_types_Classes.google} type='button'>signin with google</Button>
                        </div>
 
                 </form>

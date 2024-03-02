@@ -12,7 +12,7 @@ import Checkout from './routes/checkout/checkout-component.jsx';
       <Route path='/' element={<Navigation />} >
         <Route index={true}  element={<Home />} />
         <Route path='auth' element={<Authentication />} />
-        <Route path='shop' element ={<Shop />} />
+        <Route path='shop/*' element ={<Shop />} />
         <Route path='checkout' element={<Checkout></Checkout>}/>
       </Route>
        
